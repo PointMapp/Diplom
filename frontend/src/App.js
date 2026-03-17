@@ -15,7 +15,7 @@ import { AnimatePresence } from "framer-motion";
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gray-900 text-white">
+      <div className="min-h-screen animated-bg text-white">
         <Navbar />
 
         <AnimatePresence mode="wait">
