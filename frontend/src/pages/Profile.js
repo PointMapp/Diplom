@@ -1,4 +1,3 @@
-// src/pages/Profile.js
 import { motion } from "framer-motion";
 import { useState } from "react";
 import LevelUpModal from "../components/LevelUpModal";

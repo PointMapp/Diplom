@@ -1,5 +1,4 @@
-// src/pages/Home.js
-import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -32,26 +31,26 @@ const Home = () => {
         transition={{ duration: 0.6, delay: 0.3 }}
         className="flex gap-4 flex-wrap justify-center"
       >
-        <motion.a
-          href="/register"
-          whileHover={{ scale: 1.07, y: -4 }}
-          whileTap={{ scale: 0.95, y: 0 }}
-          transition={{ type: "spring", stiffness: 300 }}
-          className="px-7 py-3 rounded-lg font-semibold text-white shadow-xl bg-gradient-to-r from-blue-500 to-blue-700 hover:shadow-blue-500/40 hover:shadow-2xl border border-blue-400/20"
-        >
-          Начать обучение
-        </motion.a>
+        {/* Кнопка Начать обучение */}
+        <Link to="/register">
+          <motion.div
+            whileHover={{ scale: 1.07, y: -4 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-7 py-3 rounded-lg font-semibold text-white shadow-xl bg-gradient-to-r from-blue-500 to-blue-700 cursor-pointer">
+            Начать обучение
+          </motion.div>
+        </Link>
 
-        <motion.a
-          href="/login"
-          whileHover={{ scale: 1.07, y: -4 }}
-          whileTap={{ scale: 0.95, y: 0 }}
-          transition={{ type: "spring", stiffness: 300 }}
-          className="px-7 py-3 rounded-lg font-semibold text-white shadow-xl bg-gray-700 hover:bg-gray-800 hover:shadow-gray-500/30 hover:shadow-2xl border border-white/10"
-        >
-          Войти
-        </motion.a>
-      </motion.div>
+        {/* Кнопка Войти */}
+        <Link to="/login">
+          <motion.div
+            whileHover={{ scale: 1.07, y: -4 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-7 py-3 rounded-lg font-semibold text-white shadow-xl bg-gray-700 hover:bg-gray-800 cursor-pointer border border-white/10">
+            Войти
+          </motion.div>
+        </Link>
+        </motion.div>
 
       {/* Glow-карточки */}
       <motion.div

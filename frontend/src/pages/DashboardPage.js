@@ -1,4 +1,3 @@
-// src/pages/DashboardPage.js
 import PageWrapper from "../components/PageWrapper";
 import Dashboard from "../components/Dashboard";
 
