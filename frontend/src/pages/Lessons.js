@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import PageWrapper from "../components/PageWrapper";
 import { useUserStore } from "../store/useUserStore"; 
+import { lessonsData } from "../constants/lessonsData";
 
 export default function Lessons() {
   const completedLessons = useUserStore((state) => state.completedLessons || []);

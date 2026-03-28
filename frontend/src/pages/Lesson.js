@@ -4,15 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import PageWrapper from "../components/PageWrapper";
 import SidebarLessons from "../components/SidebarLessons";
 import { useUserStore } from "../store/useUserStore";
-
-// Если lessonsData не импортирован, убедись, что он есть в проекте. 
-// Пока создадим заглушку, чтобы код не падал, если импорт пропущен.
-const lessonsData = {
-  1: { title: "Введение в JavaScript", points: 100, difficulty: "легко", duration: "10 мин", content: "JavaScript — это язык программирования...", code: "console.log('Привет, мир!');" },
-  2: { title: "Переменные и типы данных", points: 150, difficulty: "легко", duration: "15 мин", content: "Используйте let и const...", code: "let name = 'JS';\nconsole.log(name);" },
-  3: { title: "Функции", points: 200, difficulty: "средне", duration: "20 мин", content: "Функции позволяют группировать код...", code: "function greet() {\n  console.log('Hello!');\n}\ngreet();" },
-  // Добавь остальные уроки сюда или импортируй из внешнего файла
-};
+import { lessonsData } from "../constants/lessonsData";
 
 export default function Lesson() {
   const { id } = useParams();
@@ -21,7 +13,7 @@ export default function Lesson() {
   // Работаем через Zustand (твой стор)
   const { addXp, completeLesson, completedLessons } = useUserStore();
   
-  const lesson = lessonsData[id];
+  const lesson = lessonsData.find(l => l.id === Number(id));
   const [code, setCode] = useState("");
   const [output, setOutput] = useState("");
   const [running, setRunning] = useState(false);

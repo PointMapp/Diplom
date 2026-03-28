@@ -1,19 +1,11 @@
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useUserStore } from "../store/useUserStore"; 
+import { lessonsData } from "../constants/lessonsData"; // Используем общие данные
 
 export default function SidebarLessons({ current }) {
-  // Достаем список завершенных ID
+  // Достаем список завершенных ID из стора
   const { completedLessons } = useUserStore();
-
-  const lessons = [
-    { id: 1, title: "Введение в JavaScript" },
-    { id: 2, title: "Переменные и типы данных" },
-    { id: 3, title: "Функции" },
-    { id: 4, title: "Массивы и объекты" },
-    { id: 5, title: "DOM – Document Object Model" },
-    { id: 6, title: "Async JS: Promises" }
-  ];
 
   return (
     <motion.div
@@ -27,7 +19,8 @@ export default function SidebarLessons({ current }) {
       </h2>
 
       <ul className="space-y-2">
-        {lessons.map((lesson) => {
+        {lessonsData.map((lesson) => {
+          // Проверяем, пройден ли урок (совпадает ли ID в массиве завершенных)
           const isDone = completedLessons.includes(lesson.id);
           
           return (
@@ -42,12 +35,12 @@ export default function SidebarLessons({ current }) {
                   }`
                 }
               >
-                <span className="truncate">{lesson.title}</span>
+                <span className="truncate text-sm font-medium">{lesson.title}</span>
                 {isDone && (
                   <motion.span 
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
-                    className="ml-2 text-green-400"
+                    className="ml-2 text-xs"
                   >
                     ✅
                   </motion.span>
